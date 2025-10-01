@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head> 
+  <meta charset="UTF-8">
+  <title>Lista de Tarefas</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f9f9f9;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      border: 2px solid #0077ff;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-left: 8px;
+      background: #0077ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #005ec2;
+    }
+
+    #lista {
+      margin-top: 20px;
+      padding: 0;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    li {
+      list-style: none;
+      margin: 8px 0;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+    }
+
+    .remover {
+      background: #ff4444;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .remover:hover {
+      background: #cc0000;
+    }
+  </style>
+  <script>
+    function adicionarTarefa() {
+      let input = document.getElementById("tarefa");
+      let valor = input.value.trim();
+
+      if (valor === "") {
+        alert("Digite uma tarefa!");
+        return;
+      }
+
+      // cria elemento li
+      let li = document.createElement("li");
+      li.innerText = valor;
+
+      // botão remover
+      let botaoRemover = document.createElement("button");
+      botaoRemover.innerText = "Remover";
+      botaoRemover.className = "remover";
+      botaoRemover.onclick = function() {
+        li.remove();
+      };
+
+      li.appendChild(botaoRemover);
+      document.getElementById("lista").appendChild(li);
+
+      // limpar input
+      input.value = "";
+    }
+  </script>
+</head>
+<body>
+  <h2>Minha Lista de Tarefas</h2>
+  <input type="text" id="tarefa" placeholder="Digite uma tarefa...">
+  <button onclick="adicionarTarefa()">Adicionar</button>
+  <ul id="lista"></ul>
+</body>
+</html>
+
+
+CORREÇAO DA ATIVIDADE!!!!!!
